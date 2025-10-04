@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+
+}
+
+/* Sidebar */
+aside {
+  width: 220px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-right: 2px solid #ddd;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-section h3 {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.menu-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-radius: 0 0 5px 5px;
+
+    display: none; /* Hide by default */
+}
+
+/* Show when checkbox is checked */
+.menu-section input[type="checkbox"]:checked + label + ul {
+    display: block;
+}
+.menu-section ul {
+    transition: all 0.3s ease;
+}
+
+
+.menu-section li {
+    padding: 5px 0;
+    color: #333;
+}
+
+
+/* Main section */
+main {
+  flex-grow: 1;
+}
+
+.hero {
+  background:linear-gradient(to right, #00291f, #00fff6);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  padding: 30px 20px;
+  color: white;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.content h2 span {
+  font-weight: bold;
+  color: #fff;
+}
+
+.content p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #e0e0e0;
+}
+
+/* Form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input,
+.form textarea,
+textarea {
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border: 2px solid #4a90e2;
+}
+
+ button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  margin: auto;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+ .textarea-container {
+    display: flex;
+    gap: 20px;
+    height: 150px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+    
+.hhh {
+	    display: flex;
+    	justify-content: space-evenly;
+}
+
+.form button[value="encode"] {
+  background-color: #4a90e2;
+}
+
+.form button[value="decode"] {
+  background-color: #e24a4a;
+}
+
+.form button:hover {
+  opacity: 0.9;
+}
+
+
+/* Output section */
+textarea[readonly] {
+  background-color: #ffffff;
+  color: #333;
+  border: 2px solid #ccc;
+  font-family: monospace;
+  margin-top: 10px;
+  transition: height 0.2s ease;
+}
+
+
+.error-box {
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.error-box p{
+	color: red;
+}

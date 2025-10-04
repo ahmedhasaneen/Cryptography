@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Forms</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<aside>
+    <div class="menu-section">
+        <input type="checkbox" id="toggle1" hidden>
+        <label for="toggle1"><h3>Encryption Methods</h3></label>
+        <ul class="collapsible">
+            <li><a th:href="@{	/api/caeser}">CaeserCipher</a></li>
+            <li><a th:href="@{/api/vigenere}">Vigenere</a></li>
+
+        </ul>
+    </div>
+
+    <div class="menu-section">
+        <input type="checkbox" id="toggle2" hidden>
+        <label for="toggle2"> <h3> Decryption Methods</h3></label>
+        <ul class="collapsible">
+            <li><a th:href="@{/api/ModrenCipher/DES}">DES</a></li>
+            <li><a th:href="@{/api/ModrenCipher/AES}">AES</a></li>
+            <li><a th:href="@{/api/ModrenCipher/RSA}">RSA</a></li>
+        </ul>
+    </div>
+</aside>
+
+
+	<main>
+		<div class="hero">
+			<div class="overlay">
+				<h2 class="title">Vigenere</h2>
+				<div class="content">
+					<p>
+						<span>A polyalphabetic cipher</span> that uses a keyword to shift letters based on the corresponding character in the key.
+						It’s stronger than Caesar<br />
+					</p>
+					<form class="form" th:action="@{/api/vigenere/}" method="post" th:object="${text}">
+						<input type="text" id="plainText" name="plainText" th:field="*{plainText}" />
+						<input type="text" id="key" name="key" th:field="*{key}" />
+						<div class="hhh">
+							<button type="submit" name="action" value="encode">Encode</button>
+							<button type="submit" name="action" value="decode">Decode</button>
+						
+						</div>
+					</form>
+
+					<div th:if="${text.cipherText}">
+						<h3>Encrypted Text:</h3>
+						<textarea id="cipherTextArea" readonly rows="3" cols="50" th:text="${text.cipherText}"></textarea>
+					</div>
+						
+					<div th:if="${error}" class="error-box">
+					    <p th:text="${error}"></p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<script>
+	  document.addEventListener("DOMContentLoaded", function () {
+	    const ta = document.getElementById("cipherTextArea");
+	    if (ta) {
+	      ta.style.height = "auto"; // Reset height
+	      ta.style.height = (ta.scrollHeight) + "px"; // Set height based on content
+	    }
+	  });
+	</script>
+	
+</body>
+</html>
